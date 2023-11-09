@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "cds-serve",
-    "undeploy": "cf undeploy ANAS-Gallerie --delete-services --delete-service-keys --delete-service-brokers",
+    "undeploy": "cf undeploy ANAS-Gallerie-db --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
     "deploy": "cf deploy mta_archives/ANAS-Gallerie.0.0.mtar --retries 1"
   },
