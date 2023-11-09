@@ -43,10 +43,10 @@ modules:
 
 resources:
   - name: ANAS-Gallerie
-    type: com.sap.xs.hana-db
+    type: org.cloudfoundry.managed-service
     parameters:
-      service-name: ANAS-Gallerie
-      service-plan: hana
+      service: hana
+      service-plan: hdi-shared
     properties:
       hana-db-name: ${service-name}
 

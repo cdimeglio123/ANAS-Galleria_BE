@@ -6,20 +6,21 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@sap-cloud-sdk/core": "^1.54.2",
     "@sap/cds": "^7",
-    "express": "^4",
+    "@sap/cds-hana": "^2",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
     "@sap/xssec": "^3",
-    "passport": "^0",
-    "@sap/cds-hana": "^2"
+    "express": "^4",
+    "passport": "^0"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1"
   },
   "scripts": {
     "start": "cds-serve",
-    "undeploy": "cf undeploy ANAS-Gallerie-db --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
-    "deploy": "cf deploy mta_archives/ANAS-Gallerie.0.0.mtar --retries 1"
+    "deploy": "cf deploy mta_archives/ANAS-Gallerie_1.s0.0.mtar --retries 1"
   },
   "cds": {
     "requires": {
