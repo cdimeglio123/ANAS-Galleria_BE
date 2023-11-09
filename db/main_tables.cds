@@ -48,12 +48,12 @@ entity Partner {
 entity Localizzazione {
     key ZZSOAWE_EXT           : String(20);
         CoordinateGeografiche : Association to dt.CoordinateGeografiche;
-        QuotaIniziale         : Decimal(10, 15);
-        LongitudineIniziale   : Decimal(10, 15);
-        LatitudineIniziale    : Decimal(10, 15);
-        QuotaFinale           : Decimal(10, 15);
-        LongitudineFinale     : Decimal(10, 15);
-        LatitudineFinale      : Decimal(10, 15);
+        QuotaIniziale         : Decimal(15, 10);
+        LongitudineIniziale   : Decimal(15, 10);
+        LatitudineIniziale    : Decimal(15, 10);
+        QuotaFinale           : Decimal(15, 10);
+        LongitudineFinale     : Decimal(15, 10);
+        LatitudineFinale      : Decimal(15, 10);
 }
 
 entity AnnoCostruzione {
@@ -108,9 +108,9 @@ entity CondizioniPericolosita {
     key ZZSOAWE_EXT                     : String(20);
         AmbienteGeologico               : Association to dt.AmbienteGeologico;
         ProfiloGeologicoDiProgetto      : Boolean;
-        AccelerazioneAttesaAlBedrock    : Decimal(4, 6);
+        AccelerazioneAttesaAlBedrock    : Decimal(6, 4);
         PresenzaDiFaglieCapaci          : Boolean;
-        DistanzaInkm                    : Decimal(4, 6);
+        DistanzaInkm                    : Decimal(6, 4);
         PresenzaDiInstabilitaDiVersante : Boolean;
         Descrizione                     : String(250);
         PresenzaDiRocceAmiantifere      : Boolean;
@@ -140,7 +140,7 @@ entity PericolositaGeologica {
         ProfiloGeologicoDiProgetto      : Boolean;
         AccelerazioneAttesaAlBedrock    : String(30);
         PresenzaDiFaglieCapaci          : Boolean;
-        DistanzaInkm                    : Decimal(4, 6);
+        DistanzaInkm                    : Decimal(6, 4);
         PresenzaDiInstabilitaDiVersante : Boolean;
         Descrizione                     : String(100);
         PresenzaDiRocceAmiantifere      : Boolean;
@@ -162,7 +162,8 @@ entity GasTemperatura {
 entity AmmassoAttraversato {
     key ZZSOAWE_EXT                                       : String(20);
         AssettoLitoStrutturale                            : Association to dt.AssettoLitoStrutturale;
-        CaratteristicheAmmassoAttraversato                : Association to many at.CaratteristicheAmmasso;
+        CaratteristicheAmmassoAttraversato                : Association to many at.CaratteristicheAmmasso
+                                                                on CaratteristicheAmmassoAttraversato.AmmassoAttraversatoID = ZZSOAWE_EXT;
         PresenzaDiMonitoraggioGeotecnicoInternoGalleria   : Boolean;
         PresenzaDiMonitoraggioGeotecnicoVersanteEImbocchi : Boolean;
         PresenzaDiMonitoraggioIdrogeologico               : Boolean;
@@ -398,10 +399,10 @@ entity InfSicurezzaServGalleria {
         ResistenzaREI_2                            : Int16;
         Numerom                                    : Int16;
         InterasseMedioM_1                          : Int16;
-        DimensioniLarXLunM                         : Int16;
+        DimensioniLarXLunM_1                       : Int16;
         Numero_3                                   : Int16;
         InterasseMedioM_2                          : Int16;
-        DimensionilarXLunM                         : Int16;
+        DimensionilarXLunM_2                       : Int16;
         PresenzaCompartimentazione                 : Boolean;
         Tipologia                                  : String(250);
         InterasseMedioM_3                          : Int16;

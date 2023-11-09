@@ -17,8 +17,9 @@ entity AltezzaBattenteAcqua {
 }
 
 entity CaratteristicheAmmasso {
-    key ID          : Integer;
-        Description : String;
+    key ID                    : Integer;
+        AmmassoAttraversatoID : String(20);
+        Description           : String;
 }
 
 entity DescrizioneRivestimento {

@@ -1,0 +1,34 @@
+_schema-version: '3.2'
+ID: ANAS-Gallerie
+description: Progetto CAP per anas gallerie
+version: 1.0.0
+parameters:
+  enable-parallel-deployments: true
+  deploy_mode: html5-repo
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm install --production
+        - npx -p @sap/cds-dk cds build --production
+
+modules:
+  # --------------------- SERVER MODULE ------------------------
+  - name: ANAS-Gallerie-srv
+  # ------------------------------------------------------------
+    type: nodejs
+    path: gen/srv
+    build-parameters:
+      ignore:
+        - default-*.json
+        - .env
+        - "*node_modules*"
+        - package-lock.json
+    parameters:
+      buildpack: nodejs_buildpack
+      memory: 512M
+      disk-quota: 1024M
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
