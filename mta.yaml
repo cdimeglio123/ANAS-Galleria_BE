@@ -35,6 +35,7 @@ modules:
       memory: 512M
       disk-quota: 1024M
     requires:
+      - name: ANAS-Gallerie
       - name: ANAS-Gallerie-uaa
     provides:
       - name: srv-api
@@ -43,7 +44,7 @@ modules:
 
 resources:
   - name: ANAS-Gallerie
-    type: org.cloudfoundry.managed-service
+    type: com.sap.xs.hdi-container
     parameters:
       service: hana
       service-plan: hdi-shared
