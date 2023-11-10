@@ -20,7 +20,7 @@
   "scripts": {
     "start": "cds-serve",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
-    "deploy": "cf deploy mta_archives/ANAS-Gallerie_1.s0.0.mtar --retries 1"
+    "deploy": "cf deploy mta_archives/ANAS-Gallerie_1.0.0.mtar --retries 1"
   },
   "cds": {
     "requires": {
