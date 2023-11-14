@@ -28,6 +28,7 @@ entity Pianificazione {
         QMTXT       : String(40);
         ERDAT       : DateTime;
         AEDAT       : DateTime;
+        State       : String(20);
 }
 
 entity Messaggi {
