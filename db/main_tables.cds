@@ -49,6 +49,9 @@ entity Partner {
 entity Localizzazione {
     key ZZSOAWE_EXT           : String(20);
         CoordinateGeografiche : Association to dt.CoordinateGeografiche;
+        ProvinciaRegione      : String(40);
+        Comune                : String(40);
+        Loc                   : String(40);
         QuotaIniziale         : Decimal(15, 10);
         LongitudineIniziale   : Decimal(15, 10);
         LatitudineIniziale    : Decimal(15, 10);
