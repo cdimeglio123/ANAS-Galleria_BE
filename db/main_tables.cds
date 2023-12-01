@@ -4,68 +4,105 @@ using {domain_tables as dt} from '../db/domain_tables';
 using {association_tables as at} from '../db/association_tables';
 
 entity SedeTecnica {
-    key ZZSOAWE_EXT                     : String(20);
-        TPLNR                           : String(30);
-        PLTXT                           : String(40);
-        ZZKMA                           : Decimal(9, 3);
-        ZZKMDA                          : Decimal(9, 3);
-        ZZESTESA                        : Decimal(9, 3);
-        ZZIFLOT                         : String(30);
-        ZZIFLOT_DESCR                   : String(40);
-        TPLMA                           : String(30);
-        NUM_FORNICE                     : Int16;
-        TOT_FORNICE                     : Int16;
-        BI_UNI                          : Association to dt.BI_UNI;
-        Proprietario                    : String(40);
-        Concessionario                  : String(40);
-        EnteVigilante                   : String(40);
-        localizzazione                  : Association to Localizzazione on localizzazione.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        annoCostruzione                 : Association to AnnoCostruzione on annoCostruzione.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        datiProgetto                    : Association to DatiProgetto on datiProgetto.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        annoProgettazione               : Association to AnnoProgettazione on annoProgettazione.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        tipologiaOpera                  : Association to TipologiaOpera on tipologiaOpera.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        aspettiGeologici                : Association to AspettiGeologici on aspettiGeologici.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        condizioniPericolosita          : Association to CondizioniPericolosita on condizioniPericolosita.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        condizioniIdrogeologiche        : Association to CondizioniIdrogeologiche on condizioniIdrogeologiche.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        pericolositaGeologica           : Association to PericolositaGeologica on pericolositaGeologica.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        gasTemperatura                  : Association to GasTemperatura on gasTemperatura.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        ammassoAttraversato             : Association to AmmassoAttraversato on ammassoAttraversato.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        generali                        : Association to Generali on generali.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        caratteristicheGeometriche      : Association to CaratteristicheGeometriche on caratteristicheGeometriche.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        primaFase                       : Association to PrimaFase on primaFase.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        rivestimentoDefinito            : Association to RivestimentoDefinito on rivestimentoDefinito.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        drenaggioRivestimento           : Association to DrenaggioRivestimento on drenaggioRivestimento.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        impermeabilizzazione            : Association to Impermeabilizzazione on impermeabilizzazione.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        drenaggioPiattaforma            : Association to DrenaggioPiattaforma on drenaggioPiattaforma.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        pavimentazioneStradale          : Association to PavimentazioneStradale on pavimentazioneStradale.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        difettositaPianoViabile         : Association to DifettositaPianoViabile on difettositaPianoViabile.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        datiTraffico                    : Association to DatiTraffico on datiTraffico.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        reteStradale                    : Association to ReteStradale on reteStradale.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        carattGeoInfStradale            : Association to CarattGeoInfStradale on carattGeoInfStradale.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        struttureSecondarie             : Association to StruttureSecondarie on struttureSecondarie.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        infSicurezzaServGalleria        : Association to InfSicurezzaServGalleria on infSicurezzaServGalleria.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        illuminazione                   : Association to Illuminazione on illuminazione.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        ventilazione                    : Association to Ventilazione on ventilazione.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        alimentazioneElettrica          : Association to AlimentazioneElettrica on alimentazioneElettrica.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        rilevatoriIncendio              : Association to RilevatoriIncendio on rilevatoriIncendio.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        componentiSicurezza             : Association to ComponentiSicurezza on componentiSicurezza.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        interventi                      : Association to Interventi on interventi.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        ispezioni                       : Association to Ispezioni on ispezioni.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        circolazione                    : Association to Circolazione on circolazione.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        rivestimentoInterno             : Association to RivestimentoInterno on rivestimentoInterno.ZZSOAWE_EXT = ZZSOAWE_EXT;
+    key ZZSOAWE_EXT                : String(20);
+        TPLNR                      : String(30);
+        PLTXT                      : String(40);
+        ZZKMA                      : Decimal(9, 3);
+        ZZKMDA                     : Decimal(9, 3);
+        ZZESTESA                   : Decimal(9, 3);
+        ZZIFLOT                    : String(30);
+        ZZIFLOT_DESCR              : String(40);
+        TPLMA                      : String(30);
+        NUM_FORNICE                : Int16;
+        TOT_FORNICE                : Int16;
+        BI_UNI                     : Association to dt.BI_UNI;
+        Proprietario               : String(40);
+        Concessionario             : String(40);
+        EnteVigilante              : String(40);
+        localizzazione             : Association to Localizzazione
+                                         on localizzazione.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        annoCostruzione            : Association to AnnoCostruzione
+                                         on annoCostruzione.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        datiProgetto               : Association to DatiProgetto
+                                         on datiProgetto.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        annoProgettazione          : Association to AnnoProgettazione
+                                         on annoProgettazione.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        tipologiaOpera             : Association to TipologiaOpera
+                                         on tipologiaOpera.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        aspettiGeologici           : Association to AspettiGeologici
+                                         on aspettiGeologici.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        condizioniPericolosita     : Association to CondizioniPericolosita
+                                         on condizioniPericolosita.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        condizioniIdrogeologiche   : Association to CondizioniIdrogeologiche
+                                         on condizioniIdrogeologiche.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        pericolositaGeologica      : Association to PericolositaGeologica
+                                         on pericolositaGeologica.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        gasTemperatura             : Association to GasTemperatura
+                                         on gasTemperatura.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        ammassoAttraversato        : Association to AmmassoAttraversato
+                                         on ammassoAttraversato.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        generali                   : Association to Generali
+                                         on generali.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        caratteristicheGeometriche : Association to CaratteristicheGeometriche
+                                         on caratteristicheGeometriche.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        primaFase                  : Association to PrimaFase
+                                         on primaFase.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        rivestimentoDefinito       : Association to RivestimentoDefinito
+                                         on rivestimentoDefinito.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        drenaggioRivestimento      : Association to DrenaggioRivestimento
+                                         on drenaggioRivestimento.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        impermeabilizzazione       : Association to Impermeabilizzazione
+                                         on impermeabilizzazione.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        drenaggioPiattaforma       : Association to DrenaggioPiattaforma
+                                         on drenaggioPiattaforma.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        pavimentazioneStradale     : Association to PavimentazioneStradale
+                                         on pavimentazioneStradale.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        difettositaPianoViabile    : Association to DifettositaPianoViabile
+                                         on difettositaPianoViabile.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        datiTraffico               : Association to DatiTraffico
+                                         on datiTraffico.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        reteStradale               : Association to ReteStradale
+                                         on reteStradale.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        carattGeoInfStradale       : Association to CarattGeoInfStradale
+                                         on carattGeoInfStradale.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        struttureSecondarie        : Association to StruttureSecondarie
+                                         on struttureSecondarie.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        infSicurezzaServGalleria   : Association to InfSicurezzaServGalleria
+                                         on infSicurezzaServGalleria.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        illuminazione              : Association to Illuminazione
+                                         on illuminazione.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        ventilazione               : Association to Ventilazione
+                                         on ventilazione.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        alimentazioneElettrica     : Association to AlimentazioneElettrica
+                                         on alimentazioneElettrica.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        rilevatoriIncendio         : Association to RilevatoriIncendio
+                                         on rilevatoriIncendio.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        componentiSicurezza        : Association to ComponentiSicurezza
+                                         on componentiSicurezza.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        interventi                 : Association to Interventi
+                                         on interventi.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        ispezioni                  : Association to Ispezioni
+                                         on ispezioni.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        circolazione               : Association to Circolazione
+                                         on circolazione.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        rivestimentoInterno        : Association to RivestimentoInterno
+                                         on rivestimentoInterno.ZZSOAWE_EXT = ZZSOAWE_EXT;
 }
 
 entity Pianificazione {
-    key QMNUM           : String(12);
-        TPLNR           : String(30);
-        ZZSOAWE_EXT     : String(20);
-        QMTXT           : String(40);
-        ERDAT           : DateTime;
-        AEDAT           : DateTime;
-        State           : String(20);
-        sedeTecnica     : Association to SedeTecnica on sedeTecnica.ZZSOAWE_EXT = ZZSOAWE_EXT;
-        partner         : Association to many Partner on partner.pianificazione = $self;
-        messaggi        : Association to many Messaggi on messaggi.pianificazione = $self;
+    key QMNUM       : String(12);
+        TPLNR       : String(30);
+        ZZSOAWE_EXT : String(20);
+        QMTXT       : String(40);
+        ERDAT       : DateTime;
+        AEDAT       : DateTime;
+        State       : String(20);
+        sedeTecnica : Association to SedeTecnica
+                          on sedeTecnica.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        partner     : Association to many Partner
+                          on partner.pianificazione = $self;
+        messaggi    : Association to many Messaggi
+                          on messaggi.pianificazione = $self;
 }
 
 entity Messaggi {
@@ -78,26 +115,29 @@ entity Messaggi {
 }
 
 entity Partner {
-    key QMNUM           : String(12);
-    key RUOLO           : String(2);
-    key CONTATORE       : Integer;
-        PARTNER         : String(12);
-        pianificazione  : Association to Pianificazione;
+    key QMNUM          : String(12);
+    key RUOLO          : String(2);
+    key CONTATORE      : Integer;
+        PARTNER        : String(12);
+        pianificazione : Association to Pianificazione;
 }
 
 entity Localizzazione {
     key ZZSOAWE_EXT           : String(20);
-        CoordinateGeografiche : Association to dt.CoordinateGeografiche;
-        ProvinciaRegione      : String(40);
-        Comune                : String(40);
-        Loc                   : String(40);
-        QuotaIniziale         : Decimal(15, 10);
-        LongitudineIniziale   : Decimal(15, 10);
-        LatitudineIniziale    : Decimal(15, 10);
-        QuotaFinale           : Decimal(15, 10);
-        LongitudineFinale     : Decimal(15, 10);
-        LatitudineFinale      : Decimal(15, 10);
+    key NUMCOM                : Integer;
+    CoordinateGeografiche    : Association to dt.CoordinateGeografiche;
+    Provincia                : String(40);
+    Regione                  : String(40);
+    Comune                   : String(40);
+    Loc                      : String(40);
+    QuotaIniziale            : Decimal(15, 10);
+    LongitudineIniziale      : Decimal(15, 10);
+    LatitudineIniziale       : Decimal(15, 10);
+    QuotaFinale              : Decimal(15, 10);
+    LongitudineFinale        : Decimal(15, 10);
+    LatitudineFinale         : Decimal(15, 10);
 }
+
 
 entity AnnoCostruzione {
     key ZZSOAWE_EXT                                          : String(20);
