@@ -6,7 +6,7 @@ using {association_tables as at} from '../db/association_tables';
 entity SedeTecnica {
     key ZZSOAWE_EXT                : String(20);
         TPLNR                      : String(30);
-        PLTXT                      : String(100);
+        PLTXT                      : String(200);
         ZZKMA                      : Decimal(9, 3);
         ZZKMDA                     : Decimal(9, 3);
         ZZESTESA                   : Decimal(9, 3);
