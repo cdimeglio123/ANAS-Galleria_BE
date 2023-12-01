@@ -1,9 +1,6 @@
 const cds = require('@sap/cds');
-const axios = require("axios");
-const core = require('@sap-cloud-sdk/core');
+const { setupPianificazione } = require('./src/routes/pianificazione');
 
 module.exports = cds.service.impl( async function(srv) {
-    srv.before('*', (req) => {
-        //insert code here
-    });
+    await setupPianificazione(srv);
 });

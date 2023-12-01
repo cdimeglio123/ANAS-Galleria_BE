@@ -1,1 +1,31 @@
-{}
+{
+    "auth": {
+        "passport": {
+            "strategy": "xsuaa",
+            "[development]":{
+                "strategy":"mock",
+                "users": {
+                    "user": {
+                        "password": "user",
+                        "roles": [
+                            "Admin"
+                        ],
+                        "userAttributes": {
+                            "givenName": "User",
+                            "familyName": "Test",
+                            "email": "user@test.it",
+                            "logonName": "user",
+                            "scopes": []
+                        }
+                    },
+                    "system": {
+                        "roles": [
+                            "system-user"
+                        ]
+                    }
+                }
+            }
+            
+        }
+    }
+}

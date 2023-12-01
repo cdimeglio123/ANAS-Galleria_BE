@@ -2,7 +2,7 @@ using { main_tables as m} from '../db/main_tables';
 using { domain_tables as d} from '../db/domain_tables';
 using { association_tables as a} from '../db/association_tables';
 
-service CatalogService {
+service CatalogService @(requires : [ 'authenticated-user', 'system-user']) {
     entity SedeTecnica                  as projection on m.SedeTecnica;
     entity Pianificazione               as projection on m.Pianificazione;
     entity Messaggi                     as projection on m.Messaggi;
