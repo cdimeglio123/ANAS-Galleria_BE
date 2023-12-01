@@ -8,13 +8,14 @@
                     "user": {
                         "password": "user",
                         "roles": [
-                            "Admin"
+                            "system-user",
+                            "Token_Exchange"
                         ],
                         "userAttributes": {
-                            "givenName": "User",
-                            "familyName": "Test",
+                            "givenName": "Andrea",
+                            "familyName": "D'Elia",
                             "email": "user@test.it",
-                            "logonName": "user",
+                            "logonName": "andrea.delia",
                             "scopes": []
                         }
                     },
