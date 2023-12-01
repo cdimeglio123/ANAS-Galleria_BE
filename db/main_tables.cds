@@ -15,6 +15,7 @@ entity SedeTecnica {
         TPLMA                      : String(30);
         NUM_FORNICE                : Int16;
         TOT_FORNICE                : Int16;
+        AINOP                      : String(200);
         BI_UNI                     : Association to dt.BI_UNI;
         Proprietario               : String(40);
         Concessionario             : String(40);
