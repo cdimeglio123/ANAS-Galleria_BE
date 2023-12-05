@@ -5,6 +5,7 @@ using {association_tables as at} from '../db/association_tables';
 
 entity SedeTecnica {
     key ZZSOAWE_EXT                : String(20);
+    key IDOPERA                    : String(20);
         TPLNR                      : String(30);
         PLTXT                      : String(200);
         ZZKMA                      : Decimal(9, 3);
@@ -126,17 +127,17 @@ entity Partner {
 entity Localizzazione {
     key ZZSOAWE_EXT           : String(20);
     key NUMCOM                : Integer;
-    CoordinateGeografiche    : Association to dt.CoordinateGeografiche;
-    Provincia                : String(40);
-    Regione                  : String(40);
-    Comune                   : String(40);
-    Loc                      : String(40);
-    QuotaIniziale            : Decimal(15, 10);
-    LongitudineIniziale      : Decimal(15, 10);
-    LatitudineIniziale       : Decimal(15, 10);
-    QuotaFinale              : Decimal(15, 10);
-    LongitudineFinale        : Decimal(15, 10);
-    LatitudineFinale         : Decimal(15, 10);
+        CoordinateGeografiche : Association to dt.CoordinateGeografiche;
+        Provincia             : String(40);
+        Regione               : String(40);
+        Comune                : String(40);
+        Loc                   : String(40);
+        QuotaIniziale         : Decimal(20, 10);
+        LongitudineIniziale   : Decimal(15, 10);
+        LatitudineIniziale    : Decimal(15, 10);
+        QuotaFinale           : Decimal(20, 10);
+        LongitudineFinale     : Decimal(15, 10);
+        LatitudineFinale      : Decimal(15, 10);
 }
 
 
