@@ -174,7 +174,7 @@ entity AnnoProgettazione {
 
 entity TipologiaOpera {
     key ZZSOAWE_EXT                : String(20);
-        TipologiaOpera             : Association to dt.Opera;
+        tipologiaOpera             : Association to dt.Opera;
         ClassificazioneUsoStradale : Association to dt.ClassificazioneStradale;
         VMAXProgetto               : Int16;
         CCRCurvatureChangeRate     : Int16;
@@ -204,12 +204,12 @@ entity CondizioniPericolosita {
 
 entity CondizioniIdrogeologiche {
     key ZZSOAWE_EXT                     : String(20);
-        CondizioniIdrogeologiche        : Association to dt.CondizioniIdrogeologiche;
+        condizioniIdrogeologiche        : Association to dt.CondizioniIdrogeologicheDominio;
         GalleriaIntegralmenteSottoFalda : Boolean;
         GalleriaParzialmenteSottoFalda  : Boolean;
         AltezzaBattenteAcquam           : Int16;
-        AltezzaBattenteAcqua            : Association to many at.AltezzaBattenteAcqua
-                                              on AltezzaBattenteAcqua.CondizioniIdrogeologiche_ZZSOAWE_EXT = $self.ZZSOAWE_EXT;
+        altezzaBattenteAcqua            : Association to many at.AltezzaBattenteAcqua
+                                              on altezzaBattenteAcqua.CondizioniIdrogeologiche_ZZSOAWE_EXT = $self.ZZSOAWE_EXT;
         AcquePotabili                   : Boolean;
         AcquePotabilinote               : String(250);
         AcqueAggressive                 : Boolean;
@@ -311,8 +311,8 @@ entity PrimaFase {
         PresenzaMiglioramentoRoccia      : Boolean;
         TipologiaMiglioramentoRoccia     : String(250);
         PresenzaBullonatureRadiali       : Boolean;
-        DescrizioneRivestimento          : Association to many at.DescrizioneRivestimento
-                                               on DescrizioneRivestimento.PrimaFase_ZZSOAWE_EXT = $self.ZZSOAWE_EXT;
+        descrizioneRivestimento          : Association to many at.DescrizioneRivestimento
+                                               on descrizioneRivestimento.PrimaFase_ZZSOAWE_EXT = $self.ZZSOAWE_EXT;
 }
 
 
@@ -357,7 +357,7 @@ entity DrenaggioRivestimento {
 
 entity Impermeabilizzazione {
     key ZZSOAWE_EXT                       : String(20);
-        Impermeabilizzazione              : Boolean;
+        impermeabilizzazione              : Boolean;
         TipoImpermeabilizzazione          : Boolean;
         Materiale                         : String(250);
         TipologiaTelo                     : Boolean;
@@ -378,12 +378,12 @@ entity DrenaggioPiattaforma {
 }
 
 entity PavimentazioneStradale {
-    key ZZSOAWE_EXT               : String(20);
-        PavimentazioneStradale    : Association to dt.PavimentazioneStradale;
-        TipologiaDiPavimentazione : Association to dt.TipologiaDiPavimentazione;
-        SpessoreCm                : Int16;
-        StatoDiManutenzione       : Association to dt.StatoDiManutenzione;
-        StatoDiManutenzioneNote   : String(250)
+    key ZZSOAWE_EXT                         : String(20);
+        PavimentazioneStradaleDominio       : Association to dt.PavimentazioneStradaleDominio;
+        TipologiaDiPavimentazione           : Association to dt.TipologiaDiPavimentazione;
+        SpessoreCm                          : Int16;
+        StatoDiManutenzione                 : Association to dt.StatoDiManutenzione;
+        StatoDiManutenzioneNote             : String(250)
 }
 
 
@@ -391,8 +391,8 @@ entity DifettositaPianoViabile {
     key ZZSOAWE_EXT                                 : String(20);
         IndicatoreIRIInternationalRoughnessIndexMMm : Boolean;
         ClasseDiIndiceIRIPrevalente                 : String(250);
-        ClasseIRI                                   : Association to many at.ClasseIRI
-                                                          on ClasseIRI.DifettositaPianoViabile_ZZSOAWE_EXT = $self.ZZSOAWE_EXT;
+        classeIRI                                   : Association to many at.ClasseIRI
+                                                          on classeIRI.DifettositaPianoViabile_ZZSOAWE_EXT = $self.ZZSOAWE_EXT;
 
 }
 
@@ -522,7 +522,7 @@ entity Illuminazione {
 
 entity Ventilazione {
     key ZZSOAWE_EXT                             : String(20);
-        TipologiaVentilazione                   : Association to dt.Ventilazione;
+        TipologiaVentilazione                   : Association to dt.VentilazioneDominio;
         VentilatoriJetFanInVolta                : Boolean;
         DisposizioneVentilatori                 : Association to dt.DisposizioneVentilatori;
         ControlloVibrazione                     : Boolean;
@@ -535,7 +535,7 @@ entity Ventilazione {
 
 entity AlimentazioneElettrica {
     key ZZSOAWE_EXT                                    : String(20);
-        AlimentazioneElettrica                         : Boolean;
+        alimentazioneElettrica                         : Boolean;
         AlimentazioneDiEmergenza                       : Boolean;
         AlimentazioneSicurezzaUPS                      : Boolean;
         DistribuzioneInVolta                           : Boolean;

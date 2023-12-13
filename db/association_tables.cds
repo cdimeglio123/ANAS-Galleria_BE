@@ -13,7 +13,7 @@ entity AltezzaBattenteAcqua {
         CondizioniIdrogeologiche_ZZSOAWE_EXT : String(20);
         daPk                                 : String(20);
         aPk                                  : String(20);
-        AltezzaBattenteAcqua                 : Int16
+        altezzaBattenteAcqua                 : Int16
 }
 
 entity CaratteristicheAmmasso {
@@ -27,7 +27,7 @@ entity DescrizioneRivestimento {
         PrimaFase_ZZSOAWE_EXT        : String(20);
         daPk                         : String(20);
         aPk                          : String(20);
-        DescrizioneRivestimento      : String(100);
+        descrizioneRivestimento      : String(100);
         TipologiaDiMassoAttraversato : String(100)
 }
 
@@ -37,7 +37,7 @@ entity ClasseIRI {
         DifettositaPianoViabile_ZZSOAWE_EXT : String(20);
         daPk                                : String(20);
         aPk                                 : String(20);
-        ClasseIRI                           : String(100);
+        classeIRI                           : String(100);
 }
 
 entity MetodologiaIspezione {

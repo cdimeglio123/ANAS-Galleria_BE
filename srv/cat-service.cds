@@ -2,7 +2,7 @@ using { main_tables as m} from '../db/main_tables';
 using { domain_tables as d} from '../db/domain_tables';
 using { association_tables as a} from '../db/association_tables';
 
-service CatalogService {
+service CatalogService @(requires : [ 'authenticated-user', 'system-user']){
     entity SedeTecnica                  as projection on m.SedeTecnica;
     entity Pianificazione               as projection on m.Pianificazione;
     entity Messaggi                     as projection on m.Messaggi;
@@ -69,7 +69,9 @@ service CatalogService {
     entity MerciPericoloseAmmesse           as projection on d.MerciPericoloseAmmesse;
     entity TrasportoMerciPericolose         as projection on d.TrasportoMerciPericolose;
     entity ClassiDiConseguenza              as projection on d.ClassiDiConseguenza;
-
+    entity CondizioniIdrogeologicheDominio  as projection on d.CondizioniIdrogeologicheDominio;
+    entity PavimentazioneStradaleDominio    as projection on d.PavimentazioneStradaleDominio;
+    entity VentilazioneDominio              as projection on d.VentilazioneDominio;
 
     entity Copertura                    as projection on a.Copertura;
     entity AltezzaBattenteAcqua         as projection on a.AltezzaBattenteAcqua;
@@ -77,6 +79,6 @@ service CatalogService {
     entity ClasseIRI                    as projection on a.ClasseIRI;
     entity CaratteristicheAmmasso       as projection on a.CaratteristicheAmmasso;
     entity MetodologiaIspezione         as projection on a.MetodologiaIspezione;
-    entity TipoDiManutenzione           as projection on  a.TipoDiManutenzione;
+    entity TipoDiManutenzione           as projection on a.TipoDiManutenzione;
 
 }
