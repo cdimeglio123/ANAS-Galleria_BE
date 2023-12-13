@@ -35,7 +35,7 @@ entity AmbienteGeologico {
         Name : String(100);
 }
 
-entity CondizioniIdrogeologiche {
+entity CondizioniIdrogeologicheDominio {
     key ID   : Int16;
         Name : String(100);
 }
@@ -80,7 +80,7 @@ entity ModalitaDrenaggio {
         Name : String(100);
 }
 
-entity PavimentazioneStradale {
+entity PavimentazioneStradaleDominio {
     key ID   : Int16;
         Name : String(100);
 }
@@ -110,7 +110,7 @@ entity Materiali {
         Name : String(100);
 }
 
-entity Ventilazione {
+entity VentilazioneDominio {
     key ID   : Int16;
         Name : String(100);
 }
