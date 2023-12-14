@@ -73,7 +73,7 @@ service CatalogService @(requires: [
     entity CondizioniIdrogeologicheDominio          as projection on d.CondizioniIdrogeologicheDominio;
     entity PavimentazioneStradaleDominio            as projection on d.PavimentazioneStradaleDominio;
     entity VentilazioneDominio                      as projection on d.VentilazioneDominio;
-    entity CaratteristicheAmmasso                   as projection on d.CaratteristicheAmmasso;
+    entity CaratteristicheAmmassoDominio            as projection on d.CaratteristicheAmmassoDominio;
 
     
     entity Copertura                                as projection on a.Copertura;

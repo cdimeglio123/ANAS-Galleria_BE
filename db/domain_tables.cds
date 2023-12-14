@@ -45,7 +45,7 @@ entity AssettoLitoStrutturale {
         Name : String(100);
 }
 
-entity CaratteristicheAmmasso {
+entity CaratteristicheAmmassoDominio {
     key ID   : Int16;
         Name : String(100);
 }
