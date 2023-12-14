@@ -45,6 +45,11 @@ entity AssettoLitoStrutturale {
         Name : String(100);
 }
 
+entity CaratteristicheAmmasso {
+    key ID   : Int16;
+        Name : String(100);
+}
+
 entity TipoGalleria {
     key ID   : Int16;
         Name : String(100);

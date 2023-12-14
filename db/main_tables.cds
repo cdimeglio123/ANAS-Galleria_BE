@@ -247,8 +247,7 @@ entity GasTemperatura {
 entity AmmassoAttraversato {
     key ZZSOAWE_EXT                                       : String(20);
         AssettoLitoStrutturale                            : Association to dt.AssettoLitoStrutturale;
-        CaratteristicheAmmassoAttraversato                : Association to many at.CaratteristicheAmmasso
-                                                                on CaratteristicheAmmassoAttraversato.AmmassoAttraversatoID = ZZSOAWE_EXT;
+        CaratteristicheAmmassoAttraversato                : Association to dt.CaratteristicheAmmasso;
         PresenzaDiMonitoraggioGeotecnicoInternoGalleria   : Boolean;
         PresenzaDiMonitoraggioGeotecnicoVersanteEImbocchi : Boolean;
         PresenzaDiMonitoraggioIdrogeologico               : Boolean;

@@ -16,11 +16,11 @@ entity AltezzaBattenteAcqua {
         altezzaBattenteAcqua                 : Int16
 }
 
-entity CaratteristicheAmmasso {
+/*entity CaratteristicheAmmasso {
     key ID                    : Integer;
         AmmassoAttraversatoID : String(20);
         Description           : String;
-}
+}*/
 
 entity DescrizioneRivestimento {
     key ID                           : Integer;
