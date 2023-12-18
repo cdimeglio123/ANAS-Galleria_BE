@@ -22,6 +22,7 @@ service CatalogService @(requires: [
     entity GasTemperatura                           as projection on m.GasTemperatura;
     entity AmmassoAttraversato                      as projection on m.AmmassoAttraversato;
     entity Generali                                 as projection on m.Generali;
+    entity TipiDiGalleria                           as projection on m.TipiDiGalleria;
     entity CaratteristicheGeometriche               as projection on m.CaratteristicheGeometriche;
     entity PrimaFase                                as projection on m.PrimaFase;
     entity RivestimentoDefinito                     as projection on m.RivestimentoDefinito;
@@ -74,13 +75,13 @@ service CatalogService @(requires: [
     entity PavimentazioneStradaleDominio            as projection on d.PavimentazioneStradaleDominio;
     entity VentilazioneDominio                      as projection on d.VentilazioneDominio;
     entity CaratteristicheAmmassoDominio            as projection on d.CaratteristicheAmmassoDominio;
-
-    
+   
+   
     entity Copertura                                as projection on a.Copertura;
     entity AltezzaBattenteAcqua                     as projection on a.AltezzaBattenteAcqua;
     entity DescrizioneRivestimento                  as projection on a.DescrizioneRivestimento;
     entity ClasseIRI                                as projection on a.ClasseIRI;
     entity MetodologiaIspezione                     as projection on a.MetodologiaIspezione;
     entity TipoDiManutenzione                       as projection on a.TipoDiManutenzione;
-
+    
 }

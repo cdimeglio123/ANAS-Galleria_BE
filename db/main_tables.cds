@@ -264,7 +264,17 @@ entity Generali {
         Sbocco                                       : Boolean;
         LunghezzaSbocco                              : Int16;
         InfrastrutturePotenzialmenteInterferenti     : Association to dt.InfrastrutturePotenzialmenteInterferenti;
-        InfrastrutturePotenzialmenteInterferentiNote : String(250)
+        InfrastrutturePotenzialmenteInterferentiNote : String(250);
+        tipidigalleriaValue                          : String;
+        tipidigalleria                               : Association to many TipiDiGalleria
+                                                           on tipidigalleria.generali = $self
+}
+
+entity TipiDiGalleria {
+    key ZZSOAWE_EXT : String(20);
+    key ID          : Int16;
+        Name        : String;
+        generali    : Association to Generali;
 }
 
 entity CaratteristicheGeometriche {
@@ -310,6 +320,7 @@ entity PrimaFase {
         PresenzaMiglioramentoRoccia      : Boolean;
         TipologiaMiglioramentoRoccia     : String(250);
         PresenzaBullonatureRadiali       : Boolean;
+        TipologiaBulloni                 : String(250);
         descrizioneRivestimento          : Association to many at.DescrizioneRivestimento
                                                on descrizioneRivestimento.PrimaFase_ZZSOAWE_EXT = $self.ZZSOAWE_EXT;
 }
