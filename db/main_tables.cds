@@ -368,15 +368,15 @@ entity DrenaggioRivestimento {
 entity Impermeabilizzazione {
     key ZZSOAWE_EXT                       : String(20);
         impermeabilizzazione              : Boolean;
-        TipoImpermeabilizzazione          : Boolean;
+        TipoImpermeabilizzazione          : Association to dt.TipoImpermeabilizzazione;
         Materiale                         : String(250);
-        TipologiaTelo                     : Boolean;
+        TipologiaTelo                     : Association to dt.TipologiaTelo;
         SpessoreTeloImpermeabilizzazioneM : Int16
 }
 
 entity DrenaggioPiattaforma {
     key ZZSOAWE_EXT                                                       : String(20);
-        TipoCaditoia                                                      : Boolean;
+        TipoCaditoia                                                      : Association to dt.TipoCaditoia;
         InterdistanzaM                                                    : Int16;
         SuperficieDrenanteMq                                              : Int16;
         AltezzaFessuraCmSeAFessura                                        : Int16;

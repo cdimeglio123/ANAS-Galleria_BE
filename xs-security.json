@@ -2,6 +2,9 @@
   "xsappname": "ANAS-Gallerie",
   "tenant-mode": "dedicated",
   "description": "Security profile of called application",
+  "foreign-scope-references": [
+    "user_attributes"
+  ],
   "scopes": [
     {
       "name": "uaa.user",

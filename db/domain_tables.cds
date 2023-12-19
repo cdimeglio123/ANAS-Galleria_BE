@@ -149,3 +149,18 @@ entity ClassiDiConseguenza {
     key ID   : Int16;
         Name : String(100);
 }
+
+entity TipoImpermeabilizzazione {
+    key ID   : Int16;
+        Name : String(100);
+}
+
+entity TipologiaTelo {
+    key ID   : Int16;
+        Name : String(100);
+}
+
+entity TipoCaditoia {
+    key ID   : Int16;
+        Name : String(100);
+}
