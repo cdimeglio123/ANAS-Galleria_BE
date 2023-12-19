@@ -32,7 +32,7 @@ modules:
         - package-lock.json
     parameters:
       buildpack: nodejs_buildpack
-      memory: 512M
+      memory: 1024M
       disk-quota: 1024M
     requires:
       - name: ANAS-Gallerie
