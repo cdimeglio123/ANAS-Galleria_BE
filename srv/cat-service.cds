@@ -78,6 +78,8 @@ service CatalogService @(requires: [
     entity TipoImpermeabilizzazione                 as projection on d.TipoImpermeabilizzazione;
     entity TipologiaTelo                            as projection on d.TipologiaTelo;
     entity TipoCaditoia                             as projection on d.TipoCaditoia;
+    entity FonteDatiTraffico                        as projection on d.FonteDatiTraffico;
+    entity TipologiaDistribuzioneIdrica             as projection on d.TipologiaDistribuzioneIdrica;
    
    
     entity Copertura                                as projection on a.Copertura;
@@ -86,5 +88,6 @@ service CatalogService @(requires: [
     entity ClasseIRI                                as projection on a.ClasseIRI;
     entity MetodologiaIspezione                     as projection on a.MetodologiaIspezione;
     entity TipoDiManutenzione                       as projection on a.TipoDiManutenzione;
+    
     
 }

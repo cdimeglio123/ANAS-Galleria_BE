@@ -93,6 +93,7 @@ entity SedeTecnica {
 
 entity Pianificazione {
     key QMNUM       : String(12);
+        REVISIONI   : Integer;
         TPLNR       : String(30);
         ZZSOAWE_EXT : String(20);
         QMTXT       : String(40);
@@ -388,12 +389,13 @@ entity DrenaggioPiattaforma {
 }
 
 entity PavimentazioneStradale {
-    key ZZSOAWE_EXT               : String(20);
-        pavimentazioneStradale    : Association to dt.PavimentazioneStradaleDominio;
-        TipologiaDiPavimentazione : Association to dt.TipologiaDiPavimentazione;
-        SpessoreCm                : Int16;
-        StatoDiManutenzione       : Association to dt.StatoDiManutenzione;
-        StatoDiManutenzioneNote   : String(250)
+    key ZZSOAWE_EXT                 : String(20);
+        pavimentazioneStradale      : Association to dt.PavimentazioneStradaleDominio;
+        pavimentazioneStradaleAltro : String(250);
+        TipologiaDiPavimentazione   : Association to dt.TipologiaDiPavimentazione;
+        SpessoreCm                  : Int16;
+        StatoDiManutenzione         : Association to dt.StatoDiManutenzione;
+        StatoDiManutenzioneNote     : String(250)
 }
 
 
@@ -408,7 +410,7 @@ entity DifettositaPianoViabile {
 
 entity DatiTraffico {
     key ZZSOAWE_EXT                                                   : String(20);
-        FonteDatiTraffico                                             : Boolean;
+        FonteDatiTraffico                                             : Association to dt.FonteDatiTraffico;
         AnnoDiRiferimentoiMisuraDiStima                               : Int16;
         TrafficoMedioGiornalieroTGMveicoliGiornoSullInteraCarreggiata : Int16;
         ClassificazioneDelTGM                                         : Association to dt.ClassificazioneDelTGM;
@@ -460,66 +462,73 @@ entity CarattGeoInfStradale {
 }
 
 entity StruttureSecondarie {
-    key ZZSOAWE_EXT                         : String(20);
-        Controsofitto                       : Boolean;
-        SpessoreM_1                         : Int16;
-        MaterialeControsoffitto             : Association to dt.Materiali;
-        SolettaSottopavimentazione          : Boolean;
-        SpessoreM_2                         : Int16;
-        MaterialeSolettaSottopavimentazione : Association to dt.Materiali;
-        PareteCunicoloLaterale              : Boolean;
-        SpessoreM_3                         : Int16;
-        MaterialePareteCunicoloalterale     : Association to dt.Materiali
+    key ZZSOAWE_EXT                              : String(20);
+        Controsofitto                            : Boolean;
+        SpessoreM_1                              : Int16;
+        MaterialeControsoffitto                  : Association to dt.Materiali;
+        AltroControsoffitto                      : String;
+        SolettaSottopavimentazione               : Boolean;
+        SpessoreM_2                              : Int16;
+        MaterialeSolettaSottopavimentazione      : Association to dt.Materiali;
+        AltroMaterialeSolettaSottopavimentazione : String;
+        PareteCunicoloLaterale                   : Boolean;
+        SpessoreM_3                              : Int16;
+        MaterialePareteCunicoloalterale          : Association to dt.Materiali;
+        AltroMaterialePareteCunicoloalterale     : String;
 
 }
 
 
 entity InfSicurezzaServGalleria {
     key ZZSOAWE_EXT                                : String(20);
-        PiazzoleDiSostaCarreggiataDX               : Boolean;
-        Numero_1                                   : Int16;
         VieDiFuga                                  : Boolean;
         NoteViaDiFuga                              : String(250);
         ViabileSINONoteCunicoloDiEsodoSottoIlPiano : String(250);
+        NoteCunicoloDiEsodoSopraIlPiano            : String;
         CunicoloDiEsodoSottoIlPianoViabile         : Boolean;
         CunicoloDiEsodoSopraIlPianoViabile         : Boolean;
         ResistenzaAlFuocoDelleStrutture            : Boolean;
-        RsistenzaAlFuocoNote                       : Boolean;
-        ByPassUscitaDiEmergenza                    : Boolean;
+        RsistenzaAlFuocoNote                       : String;
+        PiazzoleDiSostaCarreggiataDX               : Boolean;
         InterasseemdioM                            : Int16;
+        DimensioniLarXLunM_1                       : Int16;
+        Numero_1                                   : Int16;
+        PiazzoleDiSostaCarreggiataSX               : Boolean;
+        Numero_4                                   : Int16;
+        InterasseMedioM_2                          : Int16;
+        DimensionilarXLunM_2                       : Int16;
+        ByPassUscitaDiEmergenza                    : Boolean;
+        InterasseMedioM_3                          : Int16;
         Numero_2                                   : Int16;
         SuperficiePareteDivisoriaMq_1              : Int16;
         ResistenzaREI_1                            : Int16;
         LarghezzaPorteM_1                          : Int16;
         ResistenzaREI_2                            : Int16;
-        Numerom                                    : Int16;
-        InterasseMedioM_1                          : Int16;
-        DimensioniLarXLunM_1                       : Int16;
-        Numero_3                                   : Int16;
-        InterasseMedioM_2                          : Int16;
-        DimensionilarXLunM_2                       : Int16;
-        PresenzaCompartimentazione                 : Boolean;
+        CompartimentazioneAntincendio              : Boolean;
         Tipologia                                  : String(250);
-        InterasseMedioM_3                          : Int16;
-        Numero_4                                   : Int16;
-        SuperficiePareteDivisoriaMq_2              : Int16;
+        PresenzaCompartimentazione                 : Boolean;
+        ByPassCarrabili                            : Boolean;
+        InterasseMedioM_1                          : Int16;
+        Numerom                                    : Int16;
+        SuperficiePareteDivisoriaMq                : Int16;
         ResistenzaREI_3                            : Int16;
         LarghezzaPorteM_2                          : Int16;
         ResistenzaREI_4                            : Int16;
-        Numero_5                                   : Int16;
-        SuperficiePareteDivisoriaMq                : Int16;
+        VaniTecnici                                : Boolean;
+        Numero_3                                   : Int16;
+        SuperficiePareteDivisoriaMq_2              : Int16;
         ResistenzaREI_5                            : Int16;
         LarghezzaPorteM_3                          : Int16;
         ResistenzaREI                              : Int16;
+        Idranti                                    : Boolean;
         InterasseMedioM_4                          : Int16;
+        Numero_5                                   : Int16;
+        StazioniDiEmergenza                        : Boolean;
         Numero_6                                   : Int16;
         InterasseMedioM_5                          : Int16;
         Numero_7                                   : Int16;
-        CompartimentazioneAntincendio              : Boolean;
-        VaniTecnici                                : Boolean;
-        ByPassCarrabili                            : Boolean;
-        Idranti                                    : Boolean;
-        StazioniDiEmergenza                        : Boolean
+
+
 }
 
 entity Illuminazione {
@@ -532,9 +541,13 @@ entity Illuminazione {
 
 entity Ventilazione {
     key ZZSOAWE_EXT                             : String(20);
+        PresenzaVentilazione                    : Boolean;
         TipologiaVentilazione                   : Association to dt.VentilazioneDominio;
+        TipologiaVentilazioneAltro              : String;
         VentilatoriJetFanInVolta                : Boolean;
+        NumeroVentilatori                       : Int16;
         DisposizioneVentilatori                 : Association to dt.DisposizioneVentilatori;
+        DisposizioneVentilatoriAltro            : String;
         ControlloVibrazione                     : Boolean;
         CatenaDiSicurezza                       : Boolean;
         TipDiAncoraggio                         : String(250);
@@ -549,8 +562,8 @@ entity AlimentazioneElettrica {
         AlimentazioneDiEmergenza                       : Boolean;
         AlimentazioneSicurezzaUPS                      : Boolean;
         DistribuzioneInVolta                           : Boolean;
-        ProveDiCollaudoDistaccoVent                    : Boolean;
-        ProveDiCollaudoDistaccoVentNote                : String(250);
+        //ProveDiCollaudoDistaccoVent                    : Boolean;
+        //ProveDiCollaudoDistaccoVentNote                : String(250);
         AutonomiaOreAlimentazioneDiEmergenza           : Int16;
         AutonomiaMinutiAlimentazioneSicurezzaUPS       : Int16;
         TipologiaDistribuzioneInVolta                  : String(250);
@@ -560,10 +573,17 @@ entity AlimentazioneElettrica {
 
 entity RilevatoriIncendio {
     key ZZSOAWE_EXT                         : String(20);
-        RilevatoriLineariDIncendio          : Boolean;
-        TipologiaRilevatoriLineariDIncendio : String(250);
         PresenzaErogazioneIdrica            : Boolean;
-        TipologiaDistribuzioneIdrica        : Boolean
+        TipologiaRilevatoriLineariDIncendio : String(250);
+        RilevatoriLineariDIncendio          : Boolean;
+        RilevatoriLineariDIncendioNote      : String;
+        TipologiaDistribuzioneIdrica        : Association to dt.TipologiaDistribuzioneIdrica;
+        TipologiaDistribuzioneIdricaNote    : String;
+        
+        
+        
+        
+        
 }
 
 entity ComponentiSicurezza {

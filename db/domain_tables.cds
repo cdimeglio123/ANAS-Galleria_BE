@@ -164,3 +164,13 @@ entity TipoCaditoia {
     key ID   : Int16;
         Name : String(100);
 }
+
+entity FonteDatiTraffico {
+    key ID   : Int16;
+        Name : String(100);
+}
+
+entity TipologiaDistribuzioneIdrica {
+    key ID   : Int16;
+        Name : String(100);
+}
