@@ -89,6 +89,8 @@ entity SedeTecnica {
                                          on circolazione.ZZSOAWE_EXT = ZZSOAWE_EXT;
         rivestimentoInterno        : Association to RivestimentoInterno
                                          on rivestimentoInterno.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        considerazioni             : Association to ConsiderazioniConclusive
+                                         on considerazioni.ZZSOAWE_EXT = ZZSOAWE_EXT;
 }
 
 entity Pianificazione {
@@ -579,11 +581,8 @@ entity RilevatoriIncendio {
         RilevatoriLineariDIncendioNote      : String;
         TipologiaDistribuzioneIdrica        : Association to dt.TipologiaDistribuzioneIdrica;
         TipologiaDistribuzioneIdricaNote    : String;
-        
-        
-        
-        
-        
+
+
 }
 
 entity ComponentiSicurezza {
@@ -643,16 +642,19 @@ entity Ispezioni {
         DataUltimaIspezione                               : Date;
         PeriodicitASePiUDi1Ispezione                      : Int16;
         RisultatiSignificativi_1                          : String(250);
+        AttivitaDiMonitoraggio                            : Association to dt.IspezioniPregresse;
         TipoRilevamento                                   : String(250);
-        DataInizio                                        : String(250);
-        MetodologiaMonitoraggio                           : Date;
-        DataUltimoAggiornamento                           : String(250);
+        DataInizio                                        : Date;
+        MetodologiaMonitoraggio                           : String(250);
+        DataUltimoAggiornamento                           : Date;
         DataFine                                          : Date;
         TipologiaStrumentazione                           : String(250);
         GrandezzeMisurate                                 : Int16;
         RisultatiSignificativi_2                          : String(250);
+        RisultatiSignificativi_3                          : String(250);
         LivelloAllerta                                    : Int16;
-        DocumentazioneRelativa                            : String(250)
+        DocumentazioneRelativa                            : String(250);
+        AllegatoNumero                                    : String;
 }
 
 
@@ -671,4 +673,16 @@ entity Circolazione {
         RestrizioniAlTransitoDiVeicoliTrasportantiMerciPericoloseADRCap86    : Association to dt.TrasportoMerciPericolose;
         ClassiDiConseguenza                                                  : Association to dt.ClassiDiConseguenza;
         InCasoDiClasseDiConseguenzaMinoreDiCC3FornireAdeguataGiustificazione : String(250)
+}
+
+entity ConsiderazioniConclusive {
+    key ZZSOAWE_EXT                                     : String(20);
+        GiudizioSintetico                               : String;
+        IndividuazionePreliminareIndicatoriPericolosita : String;
+        ZoneDiInteresse                                 : String;
+        NecessitaIndagini                               : String;
+        AltreOsservazioni                               : String;
+        ProgettoCostruzioneElencoDocumenti              : String;
+        ElencoDocumentiAllegati                         : String;
+
 }

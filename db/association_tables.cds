@@ -17,7 +17,6 @@ entity AltezzaBattenteAcqua {
 }
 
 
-
 /*entity CaratteristicheAmmasso {
     key ID                    : Integer;
         AmmassoAttraversatoID : String(20);
@@ -44,7 +43,7 @@ entity ClasseIRI {
 
 entity MetodologiaIspezione {
     key ID                    : Integer;
-        Ispezioni_ZZSOAWE_EXT : String(20);
+    key Ispezioni_ZZSOAWE_EXT : String(20);
         Ispezione             : String(20);
         Data                  : Date
 
@@ -53,7 +52,7 @@ entity MetodologiaIspezione {
 
 entity TipoDiManutenzione {
     key ID                     : Integer;
-        Interventi_ZZSOAWE_EXT : String(20);
+    key Interventi_ZZSOAWE_EXT : String(20);
         Intervento             : String(20);
         Data                   : Date
 //Allegato:

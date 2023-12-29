@@ -45,6 +45,7 @@ service CatalogService @(requires: [
     entity Interventi                               as projection on m.Interventi;
     entity Ispezioni                                as projection on m.Ispezioni;
     entity Circolazione                             as projection on m.Circolazione;
+    entity ConsiderazioniConclusive                 as projection on m.ConsiderazioniConclusive;
     entity BI_UNI                                   as projection on d.BI_UNI;
     entity CoordinateGeografiche                    as projection on d.CoordinateGeografiche;
     entity EffettivoPresunto                        as projection on d.EffettivoPresunto;
