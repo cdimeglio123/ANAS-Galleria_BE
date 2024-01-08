@@ -628,7 +628,10 @@ entity Interventi {
         Periodicita                             : Date;
         TipoDiManutenzione                      : Association to many TipoDiManutenzione
                                                       on TipoDiManutenzione.interventi = $self;
+        TipologiaIntervento                     : Association to dt.TipoIntervento;
+        DescrizioneIntervento                   : String;
 }
+
 
 entity TipoDiManutenzione {
     key ID          : Integer;

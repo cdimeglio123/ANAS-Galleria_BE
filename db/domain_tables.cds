@@ -130,6 +130,11 @@ entity InterventoManutenzione {
         Name : String(100);
 }
 
+entity TipoIntervento {
+    key ID   : Int16;
+        Name : String(100);
+}
+
 entity IspezioniPregresse {
     key ID   : Int16;
         Name : String(100);

@@ -85,6 +85,7 @@ service CatalogService @(requires: [
     entity FonteDatiTraffico                        as projection on d.FonteDatiTraffico;
     entity TipologiaDistribuzioneIdrica             as projection on d.TipologiaDistribuzioneIdrica;
     entity campiAttachment                          as projection on d.campiAttachment;
+    entity TipoIntervento                           as projection on d.TipoIntervento;
     entity Copertura                                as projection on a.Copertura;
     entity AltezzaBattenteAcqua                     as projection on a.AltezzaBattenteAcqua;
     entity DescrizioneRivestimento                  as projection on a.DescrizioneRivestimento;
