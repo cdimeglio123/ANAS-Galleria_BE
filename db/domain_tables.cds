@@ -174,3 +174,9 @@ entity TipologiaDistribuzioneIdrica {
     key ID   : Int16;
         Name : String(100);
 }
+
+entity campiAttachment {
+    key ID      : Integer;
+        nome    : String;
+        sezione : String;
+}

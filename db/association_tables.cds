@@ -41,20 +41,12 @@ entity ClasseIRI {
         classeIRI                           : String(100);
 }
 
-entity MetodologiaIspezione {
-    key ID                    : Integer;
-    key Ispezioni_ZZSOAWE_EXT : String(20);
-        Ispezione             : String(20);
-        Data                  : Date
-
-}
 
 
-entity TipoDiManutenzione {
-    key ID                     : Integer;
-    key Interventi_ZZSOAWE_EXT : String(20);
-        Intervento             : String(20);
-        Data                   : Date
+
+
 //Allegato:
 
-}
+
+
+

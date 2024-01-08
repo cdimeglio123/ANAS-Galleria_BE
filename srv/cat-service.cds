@@ -46,6 +46,9 @@ service CatalogService @(requires: [
     entity Ispezioni                                as projection on m.Ispezioni;
     entity Circolazione                             as projection on m.Circolazione;
     entity ConsiderazioniConclusive                 as projection on m.ConsiderazioniConclusive;
+    entity TipoDiManutenzione                       as projection on m.TipoDiManutenzione;
+    entity MetodologiaIspezione                     as projection on m.MetodologiaIspezione;
+    entity AttachmentPianificazione                 as projection on m.AttachmentPianificazione;
     entity BI_UNI                                   as projection on d.BI_UNI;
     entity CoordinateGeografiche                    as projection on d.CoordinateGeografiche;
     entity EffettivoPresunto                        as projection on d.EffettivoPresunto;
@@ -81,14 +84,11 @@ service CatalogService @(requires: [
     entity TipoCaditoia                             as projection on d.TipoCaditoia;
     entity FonteDatiTraffico                        as projection on d.FonteDatiTraffico;
     entity TipologiaDistribuzioneIdrica             as projection on d.TipologiaDistribuzioneIdrica;
-   
-   
+    entity campiAttachment                          as projection on d.campiAttachment;
     entity Copertura                                as projection on a.Copertura;
     entity AltezzaBattenteAcqua                     as projection on a.AltezzaBattenteAcqua;
     entity DescrizioneRivestimento                  as projection on a.DescrizioneRivestimento;
     entity ClasseIRI                                as projection on a.ClasseIRI;
-    entity MetodologiaIspezione                     as projection on a.MetodologiaIspezione;
-    entity TipoDiManutenzione                       as projection on a.TipoDiManutenzione;
-    
-    
+
+
 }

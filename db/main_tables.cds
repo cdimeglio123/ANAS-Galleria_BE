@@ -91,6 +91,8 @@ entity SedeTecnica {
                                          on rivestimentoInterno.ZZSOAWE_EXT = ZZSOAWE_EXT;
         considerazioni             : Association to ConsiderazioniConclusive
                                          on considerazioni.ZZSOAWE_EXT = ZZSOAWE_EXT;
+        attachment                 : Association to many AttachmentPianificazione
+                                         on attachment.sedeTecnica = $self;
 }
 
 entity Pianificazione {
@@ -108,6 +110,7 @@ entity Pianificazione {
                           on partner.pianificazione = $self;
         messaggi    : Association to many Messaggi
                           on messaggi.pianificazione = $self;
+
 }
 
 entity Messaggi {
@@ -417,7 +420,7 @@ entity DatiTraffico {
         TrafficoMedioGiornalieroTGMveicoliGiornoSullInteraCarreggiata : Int16;
         ClassificazioneDelTGM                                         : Association to dt.ClassificazioneDelTGM;
         TrafficoMedioGiornalieroVeicolioCommerciali                   : Int16;
-        veicoliGiornoSullInteraCarreggiata                            : Int16;
+        //veicoliGiornoSullInteraCarreggiata                            : Int16;
         PercVP                                                        : Int16;
         veicoliGiornoMedioPerSingolaCorsiaDiMarcia                    : Int16;
         TrafficoMedioGiornalieroVeicoliADR                            : Int16;
@@ -623,10 +626,17 @@ entity Interventi {
         NumeroDiInterventiManutentiviEffettuati : Int16;
         DataUltimoIntervento                    : Date;
         Periodicita                             : Date;
-        TipoDiManutenzione                      : Association to many at.TipoDiManutenzione
-                                                      on TipoDiManutenzione.Interventi_ZZSOAWE_EXT = $self.ZZSOAWE_EXT;
+        TipoDiManutenzione                      : Association to many TipoDiManutenzione
+                                                      on TipoDiManutenzione.interventi = $self;
 }
 
+entity TipoDiManutenzione {
+    key ID          : Integer;
+    key ZZSOAWE_EXT : String(20);
+        Intervento  : String(20);
+        Data        : Date;
+        interventi  : Association to Interventi;
+}
 
 entity Ispezioni {
     key ZZSOAWE_EXT                                       : String(20);
@@ -635,8 +645,8 @@ entity Ispezioni {
         NumeroDiInterventiManutentiviEffettuati           : Int16;
         DataUltimoIntervento                              : Date;
         Periodicita                                       : String(250);
-        MetodologiaIspezione                              : Association to many at.MetodologiaIspezione
-                                                                on MetodologiaIspezione.Ispezioni_ZZSOAWE_EXT = $self.ZZSOAWE_EXT;
+        MetodologiaIspezione                              : Association to many MetodologiaIspezione
+                                                                on MetodologiaIspezione.ispezioni = $self;
         IspezioniPregresseIlManualeIspezioniDelleGallerie : Association to dt.IspezioniPregresse;
         NumeroDiIspezioniEffettuate                       : Int16;
         DataUltimaIspezione                               : Date;
@@ -655,6 +665,16 @@ entity Ispezioni {
         LivelloAllerta                                    : Int16;
         DocumentazioneRelativa                            : String(250);
         AllegatoNumero                                    : String;
+}
+
+entity MetodologiaIspezione {
+    key ID          : Integer;
+    key ZZSOAWE_EXT : String(20);
+        Ispezione   : String(20);
+        Data        : Date;
+        ispezioni   : Association to Ispezioni;
+        Ente        : String;
+
 }
 
 
@@ -685,4 +705,19 @@ entity ConsiderazioniConclusive {
         ProgettoCostruzioneElencoDocumenti              : String;
         ElencoDocumentiAllegati                         : String;
 
+}
+
+entity AttachmentPianificazione {
+    key ZZSOAWE_EXT    : String(20);
+    key fileName       : String(100);
+    key campiAssociati : String(300);
+        fileContent    : LargeBinary;
+        base64         : LargeString;
+        //@Core.MediaType  : documentType
+        //fileContent    : LargeBinary;
+
+        //@Core.IsMediaType: true
+        documentType   : String;
+        Fonte          : String;
+        sedeTecnica    : Association to SedeTecnica;
 }
